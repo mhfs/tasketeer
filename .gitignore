@@ -2,4 +2,5 @@
 log/*.log
 tmp/*
 public/system/*
+public/stylesheets/*.css
 coverage/*
