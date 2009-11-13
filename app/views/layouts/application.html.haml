@@ -8,19 +8,16 @@
     = stylesheet_link_tag 'application'
     = yield(:head)
   
-  
   %body
     #wraper
+
       #header
         #logo
           %h1= link_to "Tasketeer", root_path
-        
-        #user_menu
-          %ul
-            %li= link_to "Login"
-            %li= link_to "SignUp"
+        #user_menu= render :partial => "users/menu"
+
       #content
-      
+
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
       

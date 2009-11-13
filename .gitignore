@@ -3,4 +3,5 @@ log/*.log
 tmp/*
 public/system/*
 public/stylesheets/*.css
+db/*.sqlite3
 coverage/*
