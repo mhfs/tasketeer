@@ -21,6 +21,7 @@ config.action_controller.allow_forgery_protection    = false
 # The :test delivery method accumulates sent emails in the
 # ActionMailer::Base.deliveries array.
 config.action_mailer.delivery_method = :test
+config.action_mailer.default_url_options = { :host => "localhost:3000" }
 
 # Use SQL instead of Active Record's schema dumper when creating the test database.
 # This is necessary if your schema can't be completely dumped by the schema dumper,
@@ -29,6 +30,6 @@ config.action_mailer.delivery_method = :test
 
 config.gem "rspec",                 :lib => false, :version => ">= 1.2.9",  :source => "http://gemcutter.org"
 config.gem "rspec-rails",           :lib => false, :version => ">= 1.2.9",  :source => "http://gemcutter.org"
-config.gem "webrat"
+config.gem "webrat",                :lib => false, :version => ">= 0.5.3",  :source => "http://gemcutter.org"
 config.gem "remarkable_rails",      :lib => false
 config.gem "remarkable_paperclip",  :lib => false,                          :source => "http://gemcutter.org"
