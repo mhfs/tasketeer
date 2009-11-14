@@ -9,4 +9,6 @@ describe TaskList do
   
   should_validate_presence_of :title
   
+  should_have_scope :public, :conditions => { :private => false }, :order => 'created_at DESC'
+  
 end
