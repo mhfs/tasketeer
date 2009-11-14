@@ -23,4 +23,9 @@
     = f.password_field :password_confirmation
 
   %p
+    = f.label :picture
+  %p
+    = f.file_field :picture
+
+  %p
     = f.submit "Save"

@@ -9,6 +9,7 @@ describe "As a visitor I want to be able to signup" do
     fill_in "Email", :with => "test@test.com"
     fill_in "Password", :with => "123mudar"
     fill_in "Password Confirmation", :with => "123mudar" if valid
+    attach_file "Picture", File.join(Rails.root, 'spec', 'fixtures', 'picture.jpg')
     click_button "Save"
   end
 
