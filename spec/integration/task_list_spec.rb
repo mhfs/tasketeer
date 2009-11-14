@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 def signin_and_fill_new_task_list_form(valid = true)
-  user = sign_in_as_user
+  user = sign_up_and_login
   visit user_task_lists_path(user)
   click_link "New Task List"
   fill_in "Title", :with => "Test Title" if valid

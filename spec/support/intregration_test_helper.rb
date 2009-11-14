@@ -1,20 +1,24 @@
 class ActionController::IntegrationTest
 
+  def create_database_user(email)
+    User.create!(
+      :name => 'Test User',
+      :email => email, 
+      :password => '123mudar', 
+      :password_confirmation => '123mudar', 
+      :picture => fixture_file_upload('picture.jpg', 'image/jpeg')
+    )
+  end
+
   def create_user(options={})
     @user ||= begin
-      user = User.create!(
-        :name => 'Test User',
-        :email => 'test@test.com.br', 
-        :password => '123mudar', 
-        :password_confirmation => '123mudar', 
-        :picture => fixture_file_upload('picture.jpg', 'image/jpeg')
-      )
+      user = create_database_user('test@test.com.br')
       user.confirm! unless options[:confirm] == false
       user
     end
   end
 
-  def sign_in_as_user(options={}, &block)
+  def sign_up_and_login(options={}, &block)
     user = create_user(options)
     visit new_user_session_path unless options[:visit] == false
     fill_in 'email', :with => 'test@test.com.br'

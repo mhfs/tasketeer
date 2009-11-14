@@ -4,7 +4,7 @@ class TaskList < ActiveRecord::Base
 
   belongs_to :user
   
-  validates_presence_of :title
+  validates_presence_of :title, :user_id
   
   named_scope :public, :conditions => { :private => false }, :order => 'created_at DESC'
 end

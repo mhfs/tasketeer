@@ -10,7 +10,7 @@ describe User do
   should_not_allow_mass_assignment_of :created_at, :updated_at
   
   should_validate_presence_of :name
-  should_have_attached_file :picture, :styles => { :thumb => "30x30>" }
+  should_have_attached_file :picture, :styles => { :thumb => "40x40>" }
   should_validate_attachment_presence :picture
   should_validate_attachment_size :picture, :less_than => 100.kilobyte
   

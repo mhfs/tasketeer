@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :picture
   
   has_many :task_lists
-  has_attached_file :picture, :styles => { :thumb => "30x30>" }
+  has_attached_file :picture, :styles => { :thumb => "40x40>" }
 
   validates_presence_of :name
   validates_attachment_presence :picture
