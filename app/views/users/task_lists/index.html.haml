@@ -1,0 +1,6 @@
+- title 'My Task Lists'
+
+#task_lists
+  = render :partial => @task_lists
+
+%p= link_to "New Task List", new_user_task_list_path(@user)

@@ -9,7 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091114114526) do
+ActiveRecord::Schema.define(:version => 20091114121825) do
+
+  create_table "task_lists", :force => true do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.boolean  "private"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "task_lists", ["user_id"], :name => "index_task_lists_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

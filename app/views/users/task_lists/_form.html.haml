@@ -1,0 +1,11 @@
+- form_for [@user, @task_list] do |f|
+  = f.error_messages
+  %p
+    = f.label :title
+  %p
+    = f.text_field :title
+  %p
+    = f.check_box :private
+    = f.label :private
+  %p
+    = f.submit "Save"

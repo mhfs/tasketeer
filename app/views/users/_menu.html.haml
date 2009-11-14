@@ -1,7 +1,7 @@
 %ul
   - if user_signed_in?
     %li= "Hello #{current_user.name}!"
-    %li= link_to "My Task Lists", ''
+    %li= link_to "My Task Lists", user_task_lists_path(current_user)
     %li
       %b= link_to "Sign Out", destroy_user_session_path
   - else
