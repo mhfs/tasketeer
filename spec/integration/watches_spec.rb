@@ -7,15 +7,16 @@ describe "As a logged user I want to be able to manage my watches" do
     visit root_url
     click_link "watch_#{@task_list.id}"
   end
-  
+
   before do
-    @user = signin_and_fill_new_task_list_form
+    @user ||= sign_in_as_user
     create_sample_users_and_lists
   end
   
   it "should watch a list" do
     watch_task_list
     response.should have_tag('#watches .task_list', :count => 1)
+    response.should have_tag('#watches .task_list h3 a', :text => @task_list.title)
     response.flash[:notice].should == "Your are now watching #{@task_list.title}"
   end
   

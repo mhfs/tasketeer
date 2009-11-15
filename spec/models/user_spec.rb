@@ -1,7 +1,6 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe User do
-  fixtures :users, :task_lists
   
   should_have_many :task_lists
   should_have_many :watched_lists, :through => :watches
@@ -19,29 +18,36 @@ describe User do
   should_validate_attachment_presence :picture
   should_validate_attachment_size :picture, :less_than => 100.kilobyte
   
-  it "watch? should return false when a list is not watched" do
-    users(:one).watch?(TaskList.new).should be_false
-  end
+  context "on watch stuff" do
+
+    before do
+      @user = User.new
+      @task_list = TaskList.new
+    end
   
-  it "watch? should return true when a list is watched" do
-    users(:one).watched_lists << task_lists(:one_public)
-    users(:one).watch?(task_lists(:one_public)).should be_true
-  end
+    it "watch? should return false when a list is not watched" do
+      @user.watch?(@task_list).should be_false
+    end
   
-  it "watch! should raise exception if trying to watch private list" do
-    lambda { users(:one).watch!(task_lists(:one_private)) }.should raise_error
-  end
+    it "watch? should return true when a list is watched" do
+      @user.watched_lists << @task_list
+      @user.watch?(@task_list).should be_true
+    end
   
-  it "watch! should accept unwatched list" do
-    task_list = task_lists(:one_public)
-    users(:one).watch!(task_list).should be_true
-    users(:one).watched_lists.include?(task_list).should be_true
-  end
+    it "watch! should raise exception if trying to watch private list" do
+      @task_list.private = true
+      lambda { @user.watch!(@task_list) }.should raise_error
+    end
   
-  it "watch! should remove from list if task list is already watched" do
-    users(:one).watched_lists << task_lists(:one_public)
-    users(:one).watch!(task_lists(:one_public)).should be_false
-    users(:one).watched_lists.size.should == 0
-  end
+    it "watch! should accept unwatched list" do
+      @user.watch!(@task_list).should be_true
+      @user.watched_lists.include?(@task_list).should be_true
+    end
   
+    it "watch! should remove from list if task list is already watched" do
+      @user.watched_lists << @task_list
+      @user.watch!(@task_list).should be_false
+      @user.watched_lists.size.should == 0
+    end
+  end
 end

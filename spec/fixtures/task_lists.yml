@@ -1,9 +1,0 @@
-one_public:
-  title: 'One Public Task List'
-  private: false
-  user_id: one
-
-one_private:
-  title: 'One Private Task List'
-  private: true
-  user_id: one

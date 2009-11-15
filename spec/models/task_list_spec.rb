@@ -1,7 +1,6 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe TaskList do
-  fixtures :users, :task_lists
   
   should_belong_to :user
   should_have_many :tasks, :dependent => :destroy
@@ -15,8 +14,10 @@ describe TaskList do
   should_have_scope :public, :conditions => { :private => false }, :order => 'created_at DESC'
   
   it "public? should be the opposite of private?" do
-    task_lists(:one_public).public?.should be_true
-    task_lists(:one_private).public?.should be_false
+    task_list = TaskList.new
+    task_list.public?.should be_true
+    task_list.private = true
+    task_list.public?.should be_false
   end
   
 end

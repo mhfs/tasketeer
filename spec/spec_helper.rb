@@ -12,7 +12,6 @@ Webrat.configure do |config|
   config.open_error_files = false
 end
 
-
 # Uncomment the next line to use webrat's matchers
 #require 'webrat/integrations/rspec-rails'
 
