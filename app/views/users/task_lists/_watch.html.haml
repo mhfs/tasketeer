@@ -1,0 +1,9 @@
+- div_for watch do
+  = image_tag watch.user.picture.url(:thumb), :title => watch.user.name
+  %h3= link_to watch.title, task_list_path(watch)
+  = watch_link(watch)
+  %br
+  = pluralize(watch.tasks.size, 'task')
+  = "-"
+  = pluralize(watch.watchers.size, 'watcher')
+  .clear

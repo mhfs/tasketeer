@@ -1,5 +1,26 @@
 class ActionController::IntegrationTest
 
+  def create_sample_users_and_lists
+    user_one = create_database_user('one@test.com.br')
+    user_two = create_database_user('two@test.com.br')
+    task_list = user_one.task_lists.build(:title => "First Public", :private => false)
+    task_list.tasks.build(:name => 'Sample Task')
+    task_list.save
+    user_one.task_lists.build(:title => "First Private", :private => true).save
+    user_two.task_lists.build(:title => "Second Public", :private => false).save
+  end
+
+  def signin_and_fill_new_task_list_form(valid = true)
+    user = sign_up_and_login
+    visit user_task_lists_path(user)
+    click_link "New Task List"
+    fill_in "Title", :with => "Test Title" if valid
+    fill_in "task_list_tasks_attributes_0_name", :with => "Task 1"
+    fill_in "task_list_tasks_attributes_1_name", :with => "Task 2"
+    click_button "Save"
+    user
+  end
+
   def create_database_user(email)
     User.create!(
       :name => 'Test User',

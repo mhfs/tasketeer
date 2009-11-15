@@ -21,4 +21,15 @@ module TaskListHelper
       link_to_function("remove", "$(this).up('.task').hide(); $(this).previous().value = '1'")
     end
   end
+  
+  def watch_link(task_list)
+    if user_signed_in?
+      path = toggle_watch_user_task_list_path(current_user, task_list)
+      unless current_user.watch?(task_list)
+        link_to "watch", path, :id => "watch_#{task_list.id}"
+      else
+        link_to "unwatch", path, :id => "unwatch_#{task_list.id}"
+      end
+    end
+  end
 end

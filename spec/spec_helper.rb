@@ -7,9 +7,9 @@ require 'spec/rails'
 require 'remarkable_rails'
 require 'remarkable_paperclip'
 require 'webrat'
-
 Webrat.configure do |config|
   config.mode = :rails
+  config.open_error_files = false
 end
 
 

@@ -10,6 +10,20 @@ class Users::TaskListsController < InheritedResources::Base
     new!
   end
   
+  def watches
+    @watches = current_user.watched_lists
+  end
+  
+  def toggle_watch
+    task_list = TaskList.find(params[:id])
+    if current_user.watch!(task_list)
+      flash[:notice] = "Your are now watching #{task_list.title}"
+    else
+      flash[:notice] = "Your are no longer watching #{task_list.title}"
+    end
+    redirect_to watches_user_task_lists_path(current_user)
+  end
+  
   protected
   
     def collection

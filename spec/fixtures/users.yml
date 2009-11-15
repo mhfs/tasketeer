@@ -1,0 +1,17 @@
+one:
+  name: 'One Test User'
+  email: 'one@test.com.br'
+  encrypted_password: 51f50d725c9a55698691df995441587eb8efd839
+  password_salt: OZzn3BSoONnwsiSwZp7s
+  confirmation_token: 
+  confirmed_at: 2009-11-15 15:51:22
+  confirmation_sent_at: 
+  reset_password_token:
+  remember_token:
+  remember_created_at:
+  created_at: 2009-11-15 15:07:19
+  updated_at: 2009-11-15 15:51:22
+  picture_file_name: picture.jpg
+  picture_content_type: image/jpeg
+  picture_file_size: 12227
+  picture_updated_at: 2009-11-15 15:07:19
