@@ -7,5 +7,11 @@
   %p
     = f.check_box :private
     = f.label :private
+    
+  #tasks
+    %h3 Add some tasks ..
+    - f.fields_for :tasks do |task_form|
+      = render :partial => 'task', :locals => { :form => task_form }
+  = add_task_link(f)
   %p
     = f.submit "Save"

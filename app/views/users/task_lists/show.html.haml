@@ -3,4 +3,12 @@
 %p Private
 %p=h @task_list.private?
 
-%p= link_to "Back to My Task Lists", collection_path
+#tasks
+  %h3 Tasks
+  %ul 
+    - for task in @task_list.tasks
+      %li= task.name
+     
+%p
+  = link_to "Edit", edit_resource_path
+  = link_to "Back to My Task Lists", collection_path

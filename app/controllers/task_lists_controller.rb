@@ -3,6 +3,6 @@ class TaskListsController < InheritedResources::Base
   
   protected
     def collection
-      @task_lists ||= TaskList.public.find(:all, :include => :user).paginate(:page => params[:page])
+      @task_lists ||= TaskList.public.find(:all, :include => [:user, :tasks]).paginate(:page => params[:page])
     end
 end

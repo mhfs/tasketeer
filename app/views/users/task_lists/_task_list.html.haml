@@ -2,5 +2,7 @@
   %h3= link_to task_list.title, resource_url(task_list)
   = image_tag "private.png" if task_list.private?
   %br
+  = pluralize(task_list.tasks.size, 'task')
+  %br
   = link_to "Edit", edit_resource_path(task_list)
   = link_to "Destroy", resource_path(task_list), :confirm => "Are you sure?", :method => :delete

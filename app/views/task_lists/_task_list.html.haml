@@ -2,5 +2,5 @@
   = image_tag task_list.user.picture.url(:thumb), :title => task_list.user.name
   %h3= link_to task_list.title, resource_url(task_list)
   = image_tag "private.png" if task_list.private?
-  = pluralize(rand(3), 'task')
+  = pluralize(task_list.tasks.size, 'task')
   .clear

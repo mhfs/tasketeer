@@ -1,3 +1,9 @@
 - title "#{@task_list.title} Details by #{@task_list.user.name}"
 
+#tasks
+  %h3 Tasks
+  %ul 
+    - for task in @task_list.tasks
+      %li= task.name
+      
 %p= link_to "Back to Public Task Lists", collection_path
