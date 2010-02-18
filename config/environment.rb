@@ -15,8 +15,8 @@ Rails::Initializer.run do |config|
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
   # Specify gems that this application depends on and have them installed with rake gems:install
-  config.gem "warden",                                              :source => "http://gemcutter.org"
-  config.gem "devise",                                              :source => "http://gemcutter.org"
+  config.gem "warden",              :version => '0.9.0',            :source => "http://gemcutter.org"
+  config.gem "devise",              :version => '0.9.1',            :source => "http://gemcutter.org"
   config.gem "inherited_resources", :lib => "inherited_resources",  :source => "http://gemcutter.org"
   config.gem "paperclip",           :lib => "paperclip",            :source => "http://gemcutter.org"
   config.gem "will_paginate",                                       :source => "http://gemcutter.org"

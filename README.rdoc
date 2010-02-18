@@ -1,0 +1,31 @@
+== Welcome to Tasketeer
+
+A simple task manager I wrote as part of a hiring process.
+
+=== Project Scope
+
++ Features
+
+1) Create new account with picture upload
+2) Authentication with Devise
+3) After signed in, the user can create lists (task groups) which can be public or private
+4) When creating a list, the user should already be able to create several tasks (nested attributes and javascript)
+5) The user can see the public lists of other users
+6) The user can watch public lists
+7) The user can see all lists he watches.
+
++ Required tools
+
+1) Devise
+2) Inherited Resources
+3) Rspec
+4) Webrat
+5) Git
+
++ Tips
+
+1) Design won't be evaluated (html should be correct)
+2) Unit tests just for models and helpers
+3) One or two stories should be covered by integration tests
+4) Nested attributes with javascript: http://railsforum.com/viewtopic.php?id=28447
+5) Controllers organization: http://giantrobots.thoughtbot.com/2008/7/10/regulators-mount-up
